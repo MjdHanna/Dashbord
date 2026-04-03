@@ -16,18 +16,18 @@ export function buildPalette(presetColor) {
 
   const lightColors = {
     primary: {
-      light: colors.primaryLight,
-      main: colors.primaryMain,
-      dark: colors.primaryDark,
-      200: colors.primary200,
-      800: colors.primary800
+      light: '#f7c35c',
+      main: '#f2ae2e',
+      dark: '#c98b1f',
+      200: '#f9d78a',
+      800: '#a06b00'
     },
     secondary: {
-      light: colors.secondaryLight,
-      main: colors.secondaryMain,
-      dark: colors.secondaryDark,
-      200: colors.secondary200,
-      800: colors.secondary800
+      light: '#eeeeee',
+      main: '#d9d9d9',
+      dark: '#a6a6a6',
+      200: '#f5f5f5',
+      800: '#737373'
     },
     error: {
       light: colors.errorLight,
