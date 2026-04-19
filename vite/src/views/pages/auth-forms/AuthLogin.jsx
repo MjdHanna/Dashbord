@@ -1,91 +1,95 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
-// material-ui
 import Button from '@mui/material/Button';
-import Checkbox from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
+import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-// project imports
-import AnimateButton from 'ui-component/extended/AnimateButton';
-import CustomFormControl from 'ui-component/extended/Form/CustomFormControl';
-
-// assets
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-// ===============================|| JWT - LOGIN ||=============================== //
-
 export default function AuthLogin() {
-  const [checked, setChecked] = useState(true);
-
   const [showPassword, setShowPassword] = useState(false);
-  const handleClickShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
+  const formik = useFormik({
+    initialValues: { email: '', password: '' },
+    validationSchema: Yup.object({
+      email: Yup.string().email('Invalid email').required('Required'),
+      password: Yup.string().required('Required')
+    }),
+    onSubmit: (values) => {
+      console.log(values);
+    }
+  });
+
+  const inputStyle = {
+    borderRadius: 3,
+    background: '#f9fafb',
+    '& fieldset': { borderColor: '#e5e7eb' },
+    '&:hover fieldset': { borderColor: '#6366f1' },
+    '&.Mui-focused fieldset': {
+      borderColor: '#6366f1',
+      boxShadow: '0 0 0 3px rgba(99,102,241,0.15)'
+    }
   };
 
   return (
-    <>
-      <CustomFormControl fullWidth>
-        <InputLabel htmlFor="outlined-adornment-email-login">Email Address / Username</InputLabel>
-        <OutlinedInput id="outlined-adornment-email-login" type="email" value="info@codedthemes.com" name="email" />
-      </CustomFormControl>
-
-      <CustomFormControl fullWidth>
-        <InputLabel htmlFor="outlined-adornment-password-login">Password</InputLabel>
-        <OutlinedInput
-          id="outlined-adornment-password-login"
-          type={showPassword ? 'text' : 'password'}
-          value="123456"
-          name="password"
-          endAdornment={
-            <InputAdornment position="end">
-              <IconButton
-                aria-label="toggle password visibility"
-                onClick={handleClickShowPassword}
-                onMouseDown={handleMouseDownPassword}
-                edge="end"
-                size="large"
-              >
-                {showPassword ? <Visibility /> : <VisibilityOff />}
-              </IconButton>
-            </InputAdornment>
-          }
-          label="Password"
-        />
-      </CustomFormControl>
-
-      <Grid container sx={{ alignItems: 'center', justifyContent: 'space-between' }}>
-        <Grid>
-          <FormControlLabel
-            control={<Checkbox checked={checked} onChange={(event) => setChecked(event.target.checked)} name="checked" color="primary" />}
-            label="Keep me logged in"
-          />
-        </Grid>
-        <Grid>
-          <Typography variant="subtitle1" component={Link} to="#!" sx={{ textDecoration: 'none', color: 'secondary.main' }}>
-            Forgot Password?
+    <form onSubmit={formik.handleSubmit}>
+      <Stack spacing={2}>
+        <Box>
+          <InputLabel>Email</InputLabel>
+          <OutlinedInput fullWidth name="email" value={formik.values.email} onChange={formik.handleChange} sx={inputStyle} />
+          <Typography color="error" variant="caption">
+            {formik.touched.email && formik.errors.email}
           </Typography>
-        </Grid>
-      </Grid>
-      <Box sx={{ mt: 2 }}>
-        <AnimateButton>
-          <Button color="secondary" fullWidth size="large" type="submit" variant="contained">
-            Sign In
-          </Button>
-        </AnimateButton>
-      </Box>
-    </>
+        </Box>
+
+        <Box>
+          <InputLabel>Password</InputLabel>
+          <OutlinedInput
+            fullWidth
+            type={showPassword ? 'text' : 'password'}
+            name="password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            sx={inputStyle}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton onClick={() => setShowPassword(!showPassword)}>{showPassword ? <Visibility /> : <VisibilityOff />}</IconButton>
+              </InputAdornment>
+            }
+          />
+          <Typography color="error" variant="caption">
+            {formik.touched.password && formik.errors.password}
+          </Typography>
+        </Box>
+
+        <Button
+          fullWidth
+          type="submit"
+          sx={{
+            mt: 1,
+            borderRadius: 3,
+            py: 1.3,
+            fontWeight: 600,
+            background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+            color: '#fff',
+            boxShadow: '0 10px 25px rgba(99,102,241,0.3)',
+            '&:hover': {
+              transform: 'translateY(-2px)',
+              boxShadow: '0 15px 35px rgba(99,102,241,0.4)'
+            }
+          }}
+        >
+          Login
+        </Button>
+      </Stack>
+    </form>
   );
 }

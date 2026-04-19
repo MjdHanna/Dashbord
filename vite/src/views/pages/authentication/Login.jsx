@@ -14,48 +14,96 @@ import Logo from 'ui-component/Logo';
 import AuthFooter from 'ui-component/cards/AuthFooter';
 import AuthLogin from '../auth-forms/AuthLogin';
 
-// ================================|| AUTH3 - LOGIN ||================================ //
-
 export default function Login() {
   const downMD = useMediaQuery((theme) => theme.breakpoints.down('md'));
 
   return (
     <AuthWrapper1>
-      <Stack sx={{ justifyContent: 'flex-end', minHeight: '100vh' }}>
-        <Stack sx={{ justifyContent: 'center', alignItems: 'center', minHeight: 'calc(100vh - 68px)' }}>
-          <Box sx={{ m: { xs: 1, sm: 3 }, mb: 0 }}>
-            <AuthCardWrapper>
-              <Stack sx={{ alignItems: 'center', justifyContent: 'center', gap: 2 }}>
-                <Box sx={{ mb: 3 }}>
-                  <Link to="#" aria-label="logo">
-                    <Logo />
-                  </Link>
-                </Box>
-                <Stack sx={{ alignItems: 'center', justifyContent: 'center', gap: 1 }}>
-                  <Typography variant={downMD ? 'h3' : 'h2'} sx={{ color: 'secondary.main' }}>
-                    Hi, Welcome Back
+      <Box
+        sx={{
+          minHeight: '100vh',
+          background: '#f8fafc',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between'
+        }}
+      >
+        {/* subtle gradient shapes */}
+        <Box
+          sx={{
+            position: 'absolute',
+            width: 400,
+            height: 400,
+            background: 'rgba(99,102,241,0.15)',
+            filter: 'blur(120px)',
+            top: -100,
+            left: -100,
+            borderRadius: '50%'
+          }}
+        />
+        <Box
+          sx={{
+            position: 'absolute',
+            width: 300,
+            height: 300,
+            background: 'rgba(236,72,153,0.15)',
+            filter: 'blur(120px)',
+            bottom: -80,
+            right: -80,
+            borderRadius: '50%'
+          }}
+        />
+
+        <Stack sx={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+          <Box sx={{ width: '100%', maxWidth: 420, px: 2 }}>
+            <AuthCardWrapper
+              sx={{
+                background: '#fff',
+                borderRadius: 4,
+                boxShadow: '0 20px 60px rgba(0,0,0,0.08)',
+                border: '1px solid #f1f5f9'
+              }}
+            >
+              <Stack spacing={3} alignItems="center">
+                <Link to="#">
+                  <Logo />
+                </Link>
+
+                <Stack spacing={1} alignItems="center">
+                  <Typography variant={downMD ? 'h4' : 'h3'} sx={{ fontWeight: 700, color: 'rgb(255,224,2)' }}>
+                    Welcome Back 👋
                   </Typography>
-                  <Typography variant="caption" sx={{ fontSize: '16px', textAlign: { xs: 'center', md: 'inherit' } }}>
-                    Enter your credentials to continue
-                  </Typography>
+                  {/* <Typography sx={{ color: 'text.secondary' }}>Login to your account</Typography> */}
+                  {/* delete from login pages */}
                 </Stack>
-                <Box sx={{ width: 1 }}>
+
+                <Box sx={{ width: '100%' }}>
                   <AuthLogin />
                 </Box>
-                <Divider sx={{ width: 1 }} />
-                <Stack sx={{ alignItems: 'center' }}>
-                  <Typography component={Link} to="/pages/register" variant="subtitle1" sx={{ textDecoration: 'none' }}>
-                    Don&apos;t have an account?
-                  </Typography>
-                </Stack>
+
+                <Divider sx={{ width: '100%' }} />
+
+                {/* <Typography
+                  component={Link}
+                  to="#"
+                  sx={{
+                    color: 'primary.main',
+                    textDecoration: 'none',
+                    fontSize: '14px',
+                    '&:hover': { textDecoration: 'underline' }
+                  }}
+                >
+                  Forgot password?
+                </Typography> */}
               </Stack>
             </AuthCardWrapper>
           </Box>
         </Stack>
-        <Box sx={{ px: 3, my: 3 }}>
+
+        <Box sx={{ px: 3, py: 2 }}>
           <AuthFooter />
         </Box>
-      </Stack>
+      </Box>
     </AuthWrapper1>
   );
 }

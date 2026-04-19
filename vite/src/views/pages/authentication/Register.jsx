@@ -19,41 +19,67 @@ export default function Register() {
 
   return (
     <AuthWrapper1>
-      <Stack sx={{ justifyContent: 'flex-end', minHeight: '100vh' }}>
-        <Stack sx={{ justifyContent: 'center', alignItems: 'center', minHeight: 'calc(100vh - 68px)' }}>
-          <Box sx={{ m: { xs: 1, sm: 3 }, mb: 0 }}>
-            <AuthCardWrapper>
-              <Stack sx={{ alignItems: 'center', justifyContent: 'center', gap: 2 }}>
-                <Box sx={{ mb: 3 }}>
-                  <Link to="#" aria-label="theme logo">
-                    <Logo />
-                  </Link>
-                </Box>
-                <Stack sx={{ alignItems: 'center', justifyContent: 'center', gap: 1 }}>
-                  <Typography gutterBottom variant={downMD ? 'h3' : 'h2'} sx={{ color: 'secondary.main', mb: 0 }}>
-                    Sign up
+      <Box
+        sx={{
+          minHeight: '100vh',
+          // background: 'linear-gradient(135deg, #0f172a, #1e293b)',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between'
+        }}
+      >
+        <Stack sx={{ justifyContent: 'center', alignItems: 'center', flex: 1 }}>
+          <Box sx={{ m: { xs: 2, sm: 3 }, width: '100%', maxWidth: 450 }}>
+            <AuthCardWrapper
+              sx={{
+                backdropFilter: 'blur(20px)',
+                background: 'rgba(255,255,255,0.05)',
+                border: '1px solid rgba(255,255,255,0.1)',
+                borderRadius: 4,
+                boxShadow: '0 10px 40px rgba(0,0,0,0.4)'
+              }}
+            >
+              <Stack spacing={3} alignItems="center">
+                {/* Logo */}
+                <Link to="#">
+                  <Logo />
+                </Link>
+
+                {/* Title */}
+                <Stack spacing={1} alignItems="center">
+                  <Typography variant={downMD ? 'h4' : 'h3'} sx={{ fontWeight: 700, color: 'black' }}>
+                    Create Account
                   </Typography>
-                  <Typography variant="caption" sx={{ fontSize: '16px', textAlign: { xs: 'center', md: 'inherit' } }}>
-                    Enter your details to continue
-                  </Typography>
+                  <Typography sx={{ color: 'black' }}>Start your journey with us 🚀</Typography>
                 </Stack>
-                <Box>
-                  <AuthRegister />
-                </Box>
-                <Divider sx={{ width: 1 }} />
-                <Stack sx={{ alignItems: 'center' }}>
-                  <Typography component={Link} to="/pages/login" variant="subtitle1" sx={{ textDecoration: 'none' }}>
-                    Already have an account?
-                  </Typography>
-                </Stack>
+
+                {/* Form */}
+                <AuthRegister />
+
+                <Divider sx={{ width: '100%', borderColor: 'rgba(255,255,255,0.1)' }} />
+
+                {/* Login */}
+                <Typography
+                  component={Link}
+                  to="/pages/login"
+                  sx={{
+                    color: '#a5b4fc',
+                    textDecoration: 'none',
+                    fontWeight: 500,
+                    '&:hover': { textDecoration: 'underline' }
+                  }}
+                >
+                  Already have an account? Login
+                </Typography>
               </Stack>
             </AuthCardWrapper>
           </Box>
         </Stack>
-        <Stack sx={{ px: 3, mb: 3, mt: 1 }}>
+
+        <Box sx={{ px: 3, py: 2 }}>
           <AuthFooter />
-        </Stack>
-      </Stack>
+        </Box>
+      </Box>
     </AuthWrapper1>
   );
 }
