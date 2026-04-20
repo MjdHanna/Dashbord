@@ -16,8 +16,8 @@ export function buildPalette(presetColor) {
 
   const lightColors = {
     primary: {
-      light: '#f7c35c',
-      main: '#f2ae2e',
+      light: '#2C687B',
+      main: '#2C687B',
       dark: '#c98b1f',
       200: '#f9d78a',
       800: '#a06b00'

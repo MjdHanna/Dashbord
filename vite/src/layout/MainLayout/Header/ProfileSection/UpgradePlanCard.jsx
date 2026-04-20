@@ -1,72 +1,48 @@
-// material-ui
-import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
+import { useState } from 'react';
+import { Menu, MenuItem, IconButton, ListItemIcon, ListItemText } from '@mui/material';
 
-// project imports
-import AnimateButton from 'ui-component/extended/AnimateButton';
+import SettingsIcon from '@mui/icons-material/Settings';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { logout } from '../../../../redux/features/auth/authSlice';
+import { useLogoutMutation } from '../../../../redux/features/services/baseApi';
 
-// ==============================|| PROFILE MENU - UPGRADE PLAN CARD ||============================== //
+export default function SettingsMenu() {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
 
-export default function UpgradePlanCard() {
-  const cardSX = {
-    content: '""',
-    position: 'absolute',
-    width: 200,
-    height: 200,
-    borderColor: 'warning.main'
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [logoutApi] = useLogoutMutation();
+
+  const handleLogout = async () => {
+    try {
+      await logoutApi().unwrap();
+    } catch (e) {}
+
+    dispatch(logout());
+    navigate('/login', { replace: true });
   };
 
   return (
-    <Card
-      sx={{
-        bgcolor: 'warning.light',
-        my: 2,
-        overflow: 'hidden',
-        position: 'relative',
-        '&:after': {
-          border: '19px solid ',
-          borderRadius: '50%',
-          top: '65px',
-          right: '-150px',
-          ...cardSX
-        },
-        '&:before': {
-          border: '3px solid ',
-          borderRadius: '50%',
-          top: '145px',
-          right: '-70px',
-          ...cardSX
-        }
-      }}
-    >
-      <CardContent>
-        <Stack sx={{ gap: 2 }}>
-          <Typography variant="h4">Upgrade your plan</Typography>
-          <Typography
-            variant="subtitle2"
-            sx={{
-              color: 'grey.900',
-              opacity: 0.6
-            }}
-          >
-            70% discount for 1 years <br />
-            subscriptions.
-          </Typography>
-          <Stack direction="row">
-            <Link sx={{ textDecoration: 'none' }} href="https://links.codedthemes.com/hsqll" target="_blank">
-              <AnimateButton>
-                <Button variant="contained" color="warning" sx={{ boxShadow: 'none' }}>
-                  Go Premium
-                </Button>
-              </AnimateButton>
-            </Link>
-          </Stack>
-        </Stack>
-      </CardContent>
-    </Card>
+    <>
+      <IconButton onClick={(e) => setAnchorEl(e.currentTarget)}>
+        <SettingsIcon />
+      </IconButton>
+
+      <Menu anchorEl={anchorEl} open={open} onClose={() => setAnchorEl(null)}>
+        <MenuItem>
+          <ListItemText primary="Account Settings" />
+        </MenuItem>
+
+        <MenuItem onClick={handleLogout}>
+          <ListItemIcon>
+            <LogoutIcon fontSize="small" />
+          </ListItemIcon>
+          <ListItemText>Logout</ListItemText>
+        </MenuItem>
+      </Menu>
+    </>
   );
 }

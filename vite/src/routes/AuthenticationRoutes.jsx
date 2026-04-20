@@ -1,27 +1,36 @@
 import { lazy } from 'react';
-
-// project imports
 import Loadable from 'ui-component/Loadable';
 import MinimalLayout from 'layout/MinimalLayout';
+import { Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectToken } from '../redux/features/auth/authSlice';
 
-// maintenance routing
-const LoginPage = Loadable(lazy(() => import('views/pages/authentication/Login')));
-// const RegisterPage = Loadable(lazy(() => import('views/pages/authentication/Register')));
+// login page
+const Login = Loadable(lazy(() => import('../views/pages/authentication/Login')));
 
-// ==============================|| AUTHENTICATION ROUTING ||============================== //
+// 🔥 Wrapper يمنع دخول login إذا المستخدم مسجل
+function GuestGuard({ children }) {
+  const token = useSelector(selectToken);
 
+  // 🔥 أهم تعديل: redirect فوري بعد login
+  if (token) {
+    return <Navigate to="/dashboard/default" replace />;
+  }
+
+  return children;
+}
 const AuthenticationRoutes = {
-  path: '/',
+  path: '/login',
   element: <MinimalLayout />,
   children: [
     {
-      path: '/pages/login',
-      element: <LoginPage />
+      path: '',
+      element: (
+        <GuestGuard>
+          <Login />
+        </GuestGuard>
+      )
     }
-    // {
-    //   path: '/pages/register',
-    //   element: <RegisterPage />
-    // }
   ]
 };
 

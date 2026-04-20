@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
+// MUI
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -11,11 +14,29 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
+// icons
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
+// redux
+import { useLoginMutation } from '../../../redux/features/services/baseApi';
+import { setCredentials, selectToken } from '../../../redux/features/auth/authSlice';
+
 export default function AuthLogin() {
   const [showPassword, setShowPassword] = useState(false);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [login] = useLoginMutation();
+
+  const token = useSelector(selectToken);
+
+  // ✅ redirect فوري بدون delay
+  useEffect(() => {
+    if (token) {
+      navigate('/dashboard/default', { replace: true });
+    }
+  }, [token, navigate]);
 
   const formik = useFormik({
     initialValues: { email: '', password: '' },
@@ -23,8 +44,24 @@ export default function AuthLogin() {
       email: Yup.string().email('Invalid email').required('Required'),
       password: Yup.string().required('Required')
     }),
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: async (values) => {
+      try {
+        const res = await login(values).unwrap();
+
+        dispatch(
+          setCredentials({
+            token: res.data.accessToken, // 🔥 هذا هو الصح
+            user: {
+              id: res.data.userId,
+              name: res.data.userName,
+              role: res.data.userAccountType
+            }
+          })
+        );
+      } catch (err) {
+        console.error(err);
+        alert('Login failed');
+      }
     }
   });
 
@@ -42,14 +79,23 @@ export default function AuthLogin() {
   return (
     <form onSubmit={formik.handleSubmit}>
       <Stack spacing={2}>
+        {/* Email */}
         <Box>
           <InputLabel>Email</InputLabel>
-          <OutlinedInput fullWidth name="email" value={formik.values.email} onChange={formik.handleChange} sx={inputStyle} />
+          <OutlinedInput
+            fullWidth
+            name="email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            sx={inputStyle}
+          />
           <Typography color="error" variant="caption">
             {formik.touched.email && formik.errors.email}
           </Typography>
         </Box>
 
+        {/* Password */}
         <Box>
           <InputLabel>Password</InputLabel>
           <OutlinedInput
@@ -58,6 +104,7 @@ export default function AuthLogin() {
             name="password"
             value={formik.values.password}
             onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
             sx={inputStyle}
             endAdornment={
               <InputAdornment position="end">
@@ -70,9 +117,11 @@ export default function AuthLogin() {
           </Typography>
         </Box>
 
+        {/* Button */}
         <Button
           fullWidth
           type="submit"
+          disabled={formik.isSubmitting}
           sx={{
             mt: 1,
             borderRadius: 3,
@@ -87,7 +136,7 @@ export default function AuthLogin() {
             }
           }}
         >
-          Login
+          {formik.isSubmitting ? 'Signing in...' : 'Login'}
         </Button>
       </Stack>
     </form>
