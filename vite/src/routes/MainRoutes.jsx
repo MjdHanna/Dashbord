@@ -12,7 +12,8 @@ const Brandspage = Loadable(lazy(() => import('views/brands')));
 const OccasionsPage = Loadable(lazy(() => import('views/occasions')));
 const VendorsPage = Loadable(lazy(() => import('views/vendors')));
 const DriversPage = Loadable(lazy(() => import('views/drivers')));
-
+const CategoriesPage = Loadable(lazy(() => import('views/categories')));
+const ReportsPage = Loadable(lazy(() => import('views/reports')));
 const MainRoutes = {
   path: '/',
   element: (
@@ -31,7 +32,9 @@ const MainRoutes = {
     { path: 'brands', element: <Brandspage /> },
     { path: 'occasions', element: <OccasionsPage /> },
     { path: 'vendors', element: <VendorsPage /> },
-    { path: 'drivers', element: <DriversPage /> }
+    { path: 'drivers', element: <DriversPage /> },
+    { path: 'categories', element: <CategoriesPage /> },
+    { path: 'reports', element: <ReportsPage /> }
   ]
 };
 

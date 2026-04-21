@@ -1,27 +1,27 @@
 import React, { useState } from 'react';
 import { Box, Button, Card, Typography, TextField, Dialog, DialogTitle, DialogContent, DialogActions, Stack, Avatar } from '@mui/material';
 
-import { useTheme } from '@mui/material/styles';
-
+import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
-import AddIcon from '@mui/icons-material/Add';
+
+import { useTheme } from '@mui/material/styles';
 
 import {
-  useGetBrandsQuery,
-  useCreateBrandMutation,
-  useUpdateBrandMutation,
-  useDeleteBrandMutation
+  useGetCategoriesQuery,
+  useCreateCategoryMutation,
+  useUpdateCategoryMutation,
+  useDeleteCategoryMutation
 } from '../../redux/features/services/baseApi';
 
-export default function Brands() {
+export default function Categories() {
   const theme = useTheme();
 
-  const { data, isLoading } = useGetBrandsQuery();
+  const { data, isLoading } = useGetCategoriesQuery();
 
-  const [createBrand] = useCreateBrandMutation();
-  const [updateBrand] = useUpdateBrandMutation();
-  const [deleteBrand] = useDeleteBrandMutation();
+  const [createCategory] = useCreateCategoryMutation();
+  const [updateCategory] = useUpdateCategoryMutation();
+  const [deleteCategory] = useDeleteCategoryMutation();
 
   const [open, setOpen] = useState(false);
   const [editing, setEditing] = useState(null);
@@ -31,11 +31,11 @@ export default function Brands() {
     nameAr: '',
     descriptionEn: '',
     descriptionAr: '',
-    logo: null
+    image: null
   });
 
-  // ✅ حل المشكلة هنا
-  const brands = Array.isArray(data?.data) ? data.data : [];
+  // ✅ حماية من شكل البيانات
+  const categories = Array.isArray(data?.data) ? data.data : [];
 
   const resetForm = () => {
     setForm({
@@ -43,15 +43,15 @@ export default function Brands() {
       nameAr: '',
       descriptionEn: '',
       descriptionAr: '',
-      logo: null
+      image: null
     });
   };
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
 
-    if (name === 'logo') {
-      setForm((prev) => ({ ...prev, logo: files[0] }));
+    if (name === 'image') {
+      setForm((prev) => ({ ...prev, image: files[0] }));
     } else {
       setForm((prev) => ({ ...prev, [name]: value }));
     }
@@ -66,7 +66,7 @@ export default function Brands() {
         nameAr: item.nameAr,
         descriptionEn: item.descriptionEn,
         descriptionAr: item.descriptionAr,
-        logo: null
+        image: null
       });
     } else {
       resetForm();
@@ -90,9 +90,9 @@ export default function Brands() {
 
     try {
       if (editing) {
-        await updateBrand({ id: editing.id, formData }).unwrap();
+        await updateCategory({ id: editing.id, formData }).unwrap();
       } else {
-        await createBrand(formData).unwrap();
+        await createCategory(formData).unwrap();
       }
 
       handleClose();
@@ -102,60 +102,35 @@ export default function Brands() {
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm('Are you sure you want to delete this brand?')) return;
+    if (!window.confirm('Are you sure?')) return;
 
     try {
-      await deleteBrand(id).unwrap();
+      await deleteCategory(id).unwrap();
     } catch (err) {
       console.error(err);
     }
   };
 
   if (isLoading) {
-    return (
-      <Box p={3}>
-        <Typography>Loading...</Typography>
-      </Box>
-    );
-  }
-
-  if (!brands.length) {
-    return (
-      <Box p={3}>
-        <Typography>No brands found</Typography>
-      </Box>
-    );
+    return <Typography p={3}>Loading...</Typography>;
   }
 
   return (
-    <Box
-      sx={{
-        minHeight: '100vh',
-        backgroundColor: theme.palette.grey[50],
-        p: 3
-      }}
-    >
+    <Box sx={{ minHeight: '100vh', background: theme.palette.grey[50], p: 3 }}>
+      {/* HEADER */}
       <Stack direction="row" justifyContent="space-between" mb={4}>
         <Typography variant="h4" fontWeight={700}>
-          🏷️ Brands
+          📂 Categories
         </Typography>
 
-        <Button
-          variant="contained"
-          startIcon={<AddIcon />}
-          onClick={() => handleOpen()}
-          sx={{
-            borderRadius: 3,
-            px: 3,
-            background: theme.palette.primary.main
-          }}
-        >
-          Add Brand
+        <Button variant="contained" startIcon={<AddIcon />} onClick={() => handleOpen()} sx={{ borderRadius: 3, px: 3 }}>
+          Add Category
         </Button>
       </Stack>
 
+      {/* LIST */}
       <Stack spacing={2}>
-        {brands.map((item) => (
+        {categories.map((item) => (
           <Card
             key={item.id}
             sx={{
@@ -170,16 +145,7 @@ export default function Brands() {
               }
             }}
           >
-            <Avatar
-              src={item.logo}
-              variant="rounded"
-              sx={{
-                width: 90,
-                height: 90,
-                mr: 2,
-                background: theme.palette.secondary.main
-              }}
-            />
+            <Avatar src={item.image} variant="rounded" sx={{ width: 90, height: 90, mr: 2 }} />
 
             <Box flex={1}>
               <Typography variant="h6" fontWeight={600}>
@@ -214,8 +180,9 @@ export default function Brands() {
         ))}
       </Stack>
 
+      {/* DIALOG */}
       <Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm">
-        <DialogTitle>{editing ? 'Edit Brand' : 'Add Brand'}</DialogTitle>
+        <DialogTitle>{editing ? 'Edit Category' : 'Add Category'}</DialogTitle>
 
         <DialogContent>
           <TextField fullWidth label="Name EN" name="nameEn" value={form.nameEn} onChange={handleChange} sx={{ mb: 2 }} />
@@ -240,7 +207,7 @@ export default function Brands() {
             sx={{ mb: 2 }}
           />
 
-          <input type="file" name="logo" onChange={handleChange} />
+          <input type="file" name="image" onChange={handleChange} />
         </DialogContent>
 
         <DialogActions>
