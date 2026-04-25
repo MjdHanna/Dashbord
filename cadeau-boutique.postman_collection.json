@@ -478,7 +478,7 @@
               }
             ],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/categories",
+              "raw": "http://127.0.0.1:8000/api/categories/2",
               "protocol": "http",
               "host": [
                 "127",
@@ -489,7 +489,8 @@
               "port": "8000",
               "path": [
                 "api",
-                "categories"
+                "categories",
+                "2"
               ]
             }
           },
@@ -565,7 +566,7 @@
                   "bearer": [
                     {
                       "key": "token",
-                      "value": "1|a8m1NEJV4QVyfDJiHl61BlzC22AB3uEZtALgIRHN14c409b3",
+                      "value": "2|pNzNh0OrppYrY1ilDumomIQ3DJMJJaE4Lh5yBoyq14ea68f4",
                       "type": "string"
                     }
                   ]
@@ -610,7 +611,7 @@
                   "bearer": [
                     {
                       "key": "token",
-                      "value": "1|2GqpzlIejGvI1i8Rb2G2t3YQJXNHHWBYD25TIVlI37a0a751",
+                      "value": "2|OuVKpH593kKFJCSy8xinnSqp8H3rMI8afZKeMe7pe111c5fc",
                       "type": "string"
                     }
                   ]
@@ -635,23 +636,25 @@
                       "key": "nameEn",
                       "value": "chritsmas2",
                       "type": "text",
-                      "uuid": "a1c265b7-6eee-4b9f-9208-1c8ef586e6c3"
+                      "uuid": "a1c265b7-6eee-4b9f-9208-1c8ef586e6c3",
+                      "disabled": true
                     },
                     {
                       "key": "nameAr",
                       "value": "عيد الميلاد2",
                       "type": "text",
-                      "uuid": "43ba939d-e5d6-4c46-b0c1-f5e2e98d9394"
+                      "uuid": "43ba939d-e5d6-4c46-b0c1-f5e2e98d9394",
+                      "disabled": true
                     },
                     {
                       "key": "descriptionEn",
-                      "value": "test11",
+                      "value": "test112",
                       "type": "text",
                       "uuid": "6b4a6eb4-6b62-4824-926c-8ae2f18a4140"
                     },
                     {
                       "key": "descriptionAr",
-                      "value": "اختبار11",
+                      "value": "اختبار112",
                       "type": "text",
                       "uuid": "ba7a559a-b10b-45e5-ac5d-662bb6e4f3af"
                     },
@@ -690,7 +693,7 @@
                   "bearer": [
                     {
                       "key": "token",
-                      "value": "1|2GqpzlIejGvI1i8Rb2G2t3YQJXNHHWBYD25TIVlI37a0a751",
+                      "value": "2|OuVKpH593kKFJCSy8xinnSqp8H3rMI8afaZKeMe7pe111c5fc",
                       "type": "string"
                     }
                   ]
@@ -715,23 +718,26 @@
                       "key": "nameEn",
                       "value": "chritsmas2222",
                       "type": "text",
-                      "uuid": "a1c265b7-6eee-4b9f-9208-1c8ef586e6c3"
+                      "uuid": "a1c265b7-6eee-4b9f-9208-1c8ef586e6c3",
+                      "disabled": true
                     },
                     {
                       "key": "nameAr",
                       "value": "عيد الميلاد2222",
                       "type": "text",
-                      "uuid": "43ba939d-e5d6-4c46-b0c1-f5e2e98d9394"
+                      "uuid": "43ba939d-e5d6-4c46-b0c1-f5e2e98d9394",
+                      "disabled": true
                     },
                     {
                       "key": "descriptionEn",
                       "value": "test11",
                       "type": "text",
-                      "uuid": "6b4a6eb4-6b62-4824-926c-8ae2f18a4140"
+                      "uuid": "6b4a6eb4-6b62-4824-926c-8ae2f18a4140",
+                      "disabled": true
                     },
                     {
                       "key": "descriptionAr",
-                      "value": "اختبار11",
+                      "value": "اختبار112",
                       "type": "text",
                       "uuid": "ba7a559a-b10b-45e5-ac5d-662bb6e4f3af"
                     },
@@ -995,7 +1001,7 @@
                   "bearer": [
                     {
                       "key": "token",
-                      "value": "1|97W1GgV9Khn7X62maGfyfcgk4T60njxGf542F9Wy03ada4c4",
+                      "value": "2|OuVKpH593kKFJCSy8xinnSqp8H3rMI8afZKeMe7pe111c5fc",
                       "type": "string"
                     }
                   ]
@@ -1018,38 +1024,41 @@
                   "formdata": [
                     {
                       "key": "nameEn",
-                      "value": "apple122",
+                      "value": "apple1223",
                       "type": "text",
                       "uuid": "d8f36934-e630-4898-98a3-29c139b70474"
                     },
                     {
                       "key": "nameAr",
-                      "value": "ابل122",
+                      "value": "ابل1223",
                       "type": "text",
                       "uuid": "1e856942-c55a-423d-85a8-04be5bad6b3b"
                     },
                     {
                       "key": "descriptionEn",
-                      "value": "trst2",
+                      "value": "trst22",
                       "type": "text",
-                      "uuid": "aeb55c52-302b-441c-97d7-5062fee48396"
+                      "uuid": "aeb55c52-302b-441c-97d7-5062fee48396",
+                      "disabled": true
                     },
                     {
                       "key": "descriptionAr",
-                      "value": "trst2",
+                      "value": "trst22",
                       "type": "text",
-                      "uuid": "b6d2464c-092b-4c2e-a7f8-173f90a261b0"
+                      "uuid": "b6d2464c-092b-4c2e-a7f8-173f90a261b0",
+                      "disabled": true
                     },
                     {
                       "key": "logo",
                       "type": "file",
                       "uuid": "c272d542-1f30-4023-9540-243838028c8c",
-                      "src": "/C:/Users/karam/Downloads/deer.png"
+                      "src": "/C:/Users/karam/Downloads/deer.png",
+                      "disabled": true
                     }
                   ]
                 },
                 "url": {
-                  "raw": "http://127.0.0.1:8000/api/admin/edit-brand/12",
+                  "raw": "http://127.0.0.1:8000/api/admin/edit-brand/1",
                   "protocol": "http",
                   "host": [
                     "127",
@@ -1062,7 +1071,7 @@
                     "api",
                     "admin",
                     "edit-brand",
-                    "12"
+                    "1"
                   ]
                 }
               },
@@ -1246,7 +1255,7 @@
                   "bearer": [
                     {
                       "key": "token",
-                      "value": "1|a8m1NEJV4QVyfDJiHl61BlzC22AB3uEZtALgIRHN14c409b3",
+                      "value": "4|35ZVNi9B0XE2BImQegozm6fIsgl9tkVZiXRB6N8p70021857",
                       "type": "string"
                     }
                   ]
@@ -1283,24 +1292,27 @@
                       "key": "descriptionEn",
                       "value": "test11",
                       "type": "text",
-                      "uuid": "6b4a6eb4-6b62-4824-926c-8ae2f18a4140"
+                      "uuid": "6b4a6eb4-6b62-4824-926c-8ae2f18a4140",
+                      "disabled": true
                     },
                     {
                       "key": "descriptionAr",
                       "value": "اختبار11",
                       "type": "text",
-                      "uuid": "ba7a559a-b10b-45e5-ac5d-662bb6e4f3af"
+                      "uuid": "ba7a559a-b10b-45e5-ac5d-662bb6e4f3af",
+                      "disabled": true
                     },
                     {
                       "key": "image",
                       "type": "file",
                       "uuid": "8fdf50f4-403e-41b4-9806-c9d8ee75657e",
-                      "src": "/C:/Users/karam/Downloads/home.png"
+                      "src": "/C:/Users/karam/Downloads/home.png",
+                      "disabled": true
                     }
                   ]
                 },
                 "url": {
-                  "raw": "http://127.0.0.1:8000/api/admin/edit-occasion/9",
+                  "raw": "http://127.0.0.1:8000/api/admin/edit-occasion/4",
                   "protocol": "http",
                   "host": [
                     "127",
@@ -1313,7 +1325,7 @@
                     "api",
                     "admin",
                     "edit-occasion",
-                    "9"
+                    "4"
                   ]
                 }
               },
@@ -1378,7 +1390,7 @@
                   "bearer": [
                     {
                       "key": "token",
-                      "value": "2|RcBQZTj3O9CFRCDMZfM6GFa6LzgfnVeM9GIdnkRD1d37670d",
+                      "value": "2|OuVKpH593kKFJCSy8xinnSqp8H3rMI8afZKeMe7pe111c5fc",
                       "type": "string"
                     }
                   ]
@@ -1455,13 +1467,24 @@
                   "bearer": [
                     {
                       "key": "token",
-                      "value": "2|RcBQZTj3O9CFRCDMZfM6GFa6LzgfnVeM9GIdnkRD1d37670d",
+                      "value": "1|ozOmqYxydXAho6Woerv1mGZ8lUs4XSmWAYFCVnyI16078713",
                       "type": "string"
                     }
                   ]
                 },
                 "method": "GET",
-                "header": [],
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
                 "body": {
                   "mode": "raw",
                   "raw": "",
@@ -1525,6 +1548,936 @@
                     "admin",
                     "admin-delete-user",
                     "11"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "adUpdateUser",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "5|2hl9GeyKpFL65eWORNea8VkBMxhmUaO5k6xAsQt6f6a1dfdf",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "hadi",
+                      "type": "text",
+                      "uuid": "a1c265b7-6eee-4b9f-9208-1c8ef586e6c3",
+                      "disabled": true
+                    },
+                    {
+                      "key": "email",
+                      "value": "test123@example.com",
+                      "type": "text",
+                      "uuid": "43ba939d-e5d6-4c46-b0c1-f5e2e98d9394",
+                      "disabled": true
+                    },
+                    {
+                      "key": "password",
+                      "value": "test112454545454",
+                      "type": "text",
+                      "uuid": "6b4a6eb4-6b62-4824-926c-8ae2f18a4140"
+                    },
+                    {
+                      "key": "gender",
+                      "value": "female",
+                      "type": "text",
+                      "uuid": "ba7a559a-b10b-45e5-ac5d-662bb6e4f3af"
+                    },
+                    {
+                      "key": "image",
+                      "type": "file",
+                      "uuid": "8fdf50f4-403e-41b4-9806-c9d8ee75657e",
+                      "value": null
+                    },
+                    {
+                      "key": "phoneNumber",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "146997d7-18fa-4e8c-8ffc-33ec01364721",
+                      "disabled": true
+                    },
+                    {
+                      "key": "birthDate",
+                      "value": "2000-01-01",
+                      "type": "text",
+                      "uuid": "d478316d-7aa1-4859-855d-94ccae0890fa"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/edit-user/7",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "edit-user",
+                    "7"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "AdVendors",
+          "item": [
+            {
+              "name": "getVendors",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "1|uKrAE1hMcM69RAwRmk2dLJg5GJZTaYaypp5I6scL41f56b75",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/admin-vendors/2",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "admin-vendors",
+                    "2"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "New Request",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "4|35ZVNi9B0XE2BImQegozm6fIsgl9tkVZiXRB6N8p70021857",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/admin-delete-vendor/2",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "admin-delete-vendor",
+                    "2"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "adOrders",
+          "item": [
+            {
+              "name": "adGetOrders",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "2|pNzNh0OrppYrY1ilDumomIQ3DJMJJaE4Lh5yBoyq14ea68f4",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/admin-orders",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "admin-orders"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "adDeleteOrder",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "2|lM4jKZOtfD4MBSVEoLjnU2Owd41eJUN6AfLuN7cZ10895b8f",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/admin-delete-order/1",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "admin-delete-order",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "adEditOrder",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "2|pNzNh0OrppYrY1ilDumomIQ3DJMJJaE4Lh5yBoyq14ea68f4",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "shippingAddress",
+                      "value": "Lattakia, Owiena",
+                      "type": "text",
+                      "uuid": "a1c265b7-6eee-4b9f-9208-1c8ef586e6c3"
+                    },
+                    {
+                      "key": "shippingPhone",
+                      "value": "0956956727",
+                      "type": "text",
+                      "uuid": "43ba939d-e5d6-4c46-b0c1-f5e2e98d9394"
+                    },
+                    {
+                      "key": "shippingName",
+                      "value": "karam Anstas",
+                      "type": "text",
+                      "uuid": "6b4a6eb4-6b62-4824-926c-8ae2f18a4140"
+                    },
+                    {
+                      "key": "status",
+                      "value": "processing",
+                      "type": "text",
+                      "uuid": "ba7a559a-b10b-45e5-ac5d-662bb6e4f3af"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/edit-order/1",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "edit-order",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "adStatistic",
+          "item": [
+            {
+              "name": "adGetStatistics",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "2|pNzNh0OrppYrY1ilDumomIQ3DJMJJaE4Lh5yBoyq14ea68f4",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/statistics",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "statistics"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "adproducts",
+          "item": [
+            {
+              "name": "adGetProducts",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "2|SJvbzShgjA7sm9QtnK7X8hju4DQ8srRdtovDW3pd811b8e6d",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/admin-products/5",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "admin-products",
+                    "5"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "adCreateProduct",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "2|SJvbzShgjA7sm9QtnK7X8hju4DQ8srRdtovDW3pd811b8e6d",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "nameEn",
+                      "value": "Product test",
+                      "type": "text",
+                      "uuid": "df9d2d28-48a8-48f6-935a-3f9486f0ea93"
+                    },
+                    {
+                      "key": "nameAr",
+                      "value": "اختبار للمنتج",
+                      "type": "text",
+                      "uuid": "acd765fd-4b90-42fa-aa7b-0aaa3ccb8f7f"
+                    },
+                    {
+                      "key": "descriptionEn",
+                      "value": "iusdhfkgebhjbshsdckjhskchds",
+                      "type": "text",
+                      "uuid": "ecfb79df-ba3a-4000-8497-9b67e3585ca5"
+                    },
+                    {
+                      "key": "descriptionAr",
+                      "value": "يسابنسايباسليبا",
+                      "type": "text",
+                      "uuid": "e24d2eee-0330-4482-b373-a6734d4b62b8"
+                    },
+                    {
+                      "key": "categoryId",
+                      "value": "2",
+                      "type": "text",
+                      "uuid": "aaa67acd-e8b5-4a79-a41b-c786b0514a95"
+                    },
+                    {
+                      "key": "brandId",
+                      "value": "2",
+                      "type": "text",
+                      "uuid": "68ecaaf3-08a4-4c2e-8e4b-2d48f8e529b7"
+                    },
+                    {
+                      "key": "vendorId",
+                      "value": "2",
+                      "type": "text",
+                      "uuid": "78ab1c27-67dd-423f-b722-79b7f660b847"
+                    },
+                    {
+                      "key": "images[]",
+                      "type": "file",
+                      "uuid": "2a7f2ba7-92d6-49da-b3a4-64debce13c56",
+                      "src": "/C:/Users/karam/Downloads/home.png"
+                    },
+                    {
+                      "key": "images[]",
+                      "type": "file",
+                      "uuid": "d6595613-67e7-484d-8701-f6250ddea01b",
+                      "src": [
+                        "/C:/Users/karam/Downloads/deer.png",
+                        "/C:/Users/karam/Downloads/car.webp"
+                      ]
+                    },
+                    {
+                      "key": "occasionIds[]",
+                      "value": "2",
+                      "type": "text",
+                      "uuid": "e8f303dd-d8d2-4656-9fd6-7896b1773202"
+                    },
+                    {
+                      "key": "occasionIds[]",
+                      "value": "3",
+                      "type": "text",
+                      "uuid": "d630ae63-c353-4c92-984b-a26c4d2ada09"
+                    },
+                    {
+                      "key": "price",
+                      "value": "400",
+                      "type": "text",
+                      "uuid": "e8449926-91d7-4227-a870-d41730d0389b"
+                    },
+                    {
+                      "key": "variants[0][price]",
+                      "value": "400",
+                      "type": "text",
+                      "uuid": "455d68c4-ff6c-4c36-9d60-3678a91e5656"
+                    },
+                    {
+                      "key": "variants[0][stockQuantity]",
+                      "value": "3",
+                      "type": "text",
+                      "uuid": "fb91568f-f58b-43c4-8958-0086b9426ebf"
+                    },
+                    {
+                      "key": "variants[0][attributes][size]",
+                      "value": "M",
+                      "type": "text",
+                      "uuid": "bdccdf05-ae51-4b2f-92ba-0e2946a2c06e"
+                    },
+                    {
+                      "key": "variants[0][attributes][color]",
+                      "value": "Red",
+                      "type": "text",
+                      "uuid": "1411a9d5-74ad-492a-b439-8c2ff904814c"
+                    },
+                    {
+                      "key": "variants[1][price]",
+                      "value": "500",
+                      "type": "text",
+                      "uuid": "073733e8-7b6e-48bd-b093-561d4cc20609"
+                    },
+                    {
+                      "key": "variants[1][stockQuantity]",
+                      "value": "5",
+                      "type": "text",
+                      "uuid": "03dc0ad0-6549-4ea4-9a25-974a2bd241da"
+                    },
+                    {
+                      "key": "variants[1][attributes][size]",
+                      "value": "L",
+                      "type": "text",
+                      "uuid": "3ff32609-b9f5-4ecc-82c3-b413589cf719"
+                    },
+                    {
+                      "key": "variants[1][attributes][color]",
+                      "value": "pink",
+                      "type": "text",
+                      "uuid": "2bc9e639-c16d-46ff-a1e7-6f63cda489e4"
+                    },
+                    {
+                      "key": "features[0][Weight]",
+                      "value": "3kg",
+                      "type": "text",
+                      "uuid": "5200f026-a2ed-4a9d-a817-d4a58ad1f54c"
+                    },
+                    {
+                      "key": "features[0][size]",
+                      "value": "M",
+                      "type": "text",
+                      "uuid": "dfbf4898-40af-43ce-8c87-591e5093a18c"
+                    },
+                    {
+                      "key": "featuresAr[0][وزن]",
+                      "value": "3كج",
+                      "type": "text",
+                      "uuid": "076313d8-7d09-4298-a193-ca4ff4fd1bac"
+                    },
+                    {
+                      "key": "featuresAr[0][حجم]",
+                      "value": "وسط",
+                      "type": "text",
+                      "uuid": "485f2aa8-16d8-4db3-9751-8c5b78f438bc"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/admin-add-products",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "admin-add-products"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "adEditProduct",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "2|SJvbzShgjA7sm9QtnK7X8hju4DQ8srRdtovDW3pd811b8e6d",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "nameEn",
+                      "value": "Product test",
+                      "type": "text",
+                      "uuid": "df9d2d28-48a8-48f6-935a-3f9486f0ea93"
+                    },
+                    {
+                      "key": "nameAr",
+                      "value": "اختبار للمنتج2",
+                      "type": "text",
+                      "uuid": "acd765fd-4b90-42fa-aa7b-0aaa3ccb8f7f"
+                    },
+                    {
+                      "key": "descriptionEn",
+                      "value": "iusdhfkgebhjbshsdckjhskchds",
+                      "type": "text",
+                      "uuid": "ecfb79df-ba3a-4000-8497-9b67e3585ca5"
+                    },
+                    {
+                      "key": "descriptionAr",
+                      "value": "يسابنسايباسليبا45454",
+                      "type": "text",
+                      "uuid": "e24d2eee-0330-4482-b373-a6734d4b62b8"
+                    },
+                    {
+                      "key": "categoryId",
+                      "value": "7",
+                      "type": "text",
+                      "uuid": "aaa67acd-e8b5-4a79-a41b-c786b0514a95"
+                    },
+                    {
+                      "key": "brandId",
+                      "value": "1",
+                      "type": "text",
+                      "uuid": "68ecaaf3-08a4-4c2e-8e4b-2d48f8e529b7"
+                    },
+                    {
+                      "key": "vendorId",
+                      "value": "1",
+                      "type": "text",
+                      "uuid": "78ab1c27-67dd-423f-b722-79b7f660b847"
+                    },
+                    {
+                      "key": "images[]",
+                      "type": "file",
+                      "uuid": "2a7f2ba7-92d6-49da-b3a4-64debce13c56",
+                      "src": "/C:/Users/karam/Downloads/car.webp"
+                    },
+                    {
+                      "key": "images[]",
+                      "type": "file",
+                      "uuid": "d6595613-67e7-484d-8701-f6250ddea01b",
+                      "src": [
+                        "/C:/Users/karam/Downloads/deer.png",
+                        "/C:/Users/karam/Downloads/home.png"
+                      ]
+                    },
+                    {
+                      "key": "occasionIds[]",
+                      "value": "2",
+                      "type": "text",
+                      "uuid": "e8f303dd-d8d2-4656-9fd6-7896b1773202"
+                    },
+                    {
+                      "key": "occasionIds[]",
+                      "value": "4",
+                      "type": "text",
+                      "uuid": "d630ae63-c353-4c92-984b-a26c4d2ada09"
+                    },
+                    {
+                      "key": "price",
+                      "value": "40",
+                      "type": "text",
+                      "uuid": "e8449926-91d7-4227-a870-d41730d0389b"
+                    },
+                    {
+                      "key": "variants[0][price]",
+                      "value": "4002",
+                      "type": "text",
+                      "uuid": "455d68c4-ff6c-4c36-9d60-3678a91e5656"
+                    },
+                    {
+                      "key": "variants[0][stockQuantity]",
+                      "value": "36",
+                      "type": "text",
+                      "uuid": "fb91568f-f58b-43c4-8958-0086b9426ebf"
+                    },
+                    {
+                      "key": "variants[0][attributes][size]",
+                      "value": "XL",
+                      "type": "text",
+                      "uuid": "bdccdf05-ae51-4b2f-92ba-0e2946a2c06e"
+                    },
+                    {
+                      "key": "variants[0][attributes][color]",
+                      "value": "Violet",
+                      "type": "text",
+                      "uuid": "1411a9d5-74ad-492a-b439-8c2ff904814c"
+                    },
+                    {
+                      "key": "variants[1][price]",
+                      "value": "500",
+                      "type": "text",
+                      "uuid": "073733e8-7b6e-48bd-b093-561d4cc20609"
+                    },
+                    {
+                      "key": "variants[1][stockQuantity]",
+                      "value": "5",
+                      "type": "text",
+                      "uuid": "03dc0ad0-6549-4ea4-9a25-974a2bd241da"
+                    },
+                    {
+                      "key": "variants[1][attributes][size]",
+                      "value": "L",
+                      "type": "text",
+                      "uuid": "3ff32609-b9f5-4ecc-82c3-b413589cf719"
+                    },
+                    {
+                      "key": "variants[1][attributes][color]",
+                      "value": "pink",
+                      "type": "text",
+                      "uuid": "2bc9e639-c16d-46ff-a1e7-6f63cda489e4"
+                    },
+                    {
+                      "key": "features[0][Weight]",
+                      "value": "3kg",
+                      "type": "text",
+                      "uuid": "5200f026-a2ed-4a9d-a817-d4a58ad1f54c"
+                    },
+                    {
+                      "key": "features[0][size]",
+                      "value": "M",
+                      "type": "text",
+                      "uuid": "dfbf4898-40af-43ce-8c87-591e5093a18c"
+                    },
+                    {
+                      "key": "featuresAr[0][وزن]",
+                      "value": "3كج",
+                      "type": "text",
+                      "uuid": "076313d8-7d09-4298-a193-ca4ff4fd1bac"
+                    },
+                    {
+                      "key": "featuresAr[0][حجم]",
+                      "value": "وسط",
+                      "type": "text",
+                      "uuid": "485f2aa8-16d8-4db3-9751-8c5b78f438bc"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/admin-edit-product/4",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "admin-edit-product",
+                    "4"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "adDeleteProduct",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "2|SJvbzShgjA7sm9QtnK7X8hju4DQ8srRdtovDW3pd811b8e6d",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/admin-delete-product/1",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "admin-delete-product",
+                    "1"
                   ]
                 }
               },
@@ -1610,7 +2563,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "2|RcBQZTj3O9CFRCDMZfM6GFa6LzgfnVeM9GIdnkRD1d37670d",
+                  "value": "1|zXUIFKuHydlJ2PIeghUI6y455KKLQXZPvHEGrEcD4c6769b9",
                   "type": "string"
                 }
               ]
@@ -1654,7 +2607,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "1|CUPUaHS9BIlG753FwltQJCv8qD6PuV2wm1bh1LC085445150",
+                  "value": "1|zXUIFKuHydlJ2PIeghUI6y455KKLQXZPvHEGrEcD4c6769b9",
                   "type": "string"
                 }
               ]
@@ -1771,7 +2724,7 @@
               }
             ],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/products/1",
+              "raw": "http://127.0.0.1:8000/api/products",
               "protocol": "http",
               "host": [
                 "127",
@@ -1782,8 +2735,7 @@
               "port": "8000",
               "path": [
                 "api",
-                "products",
-                "1"
+                "products"
               ]
             }
           },
@@ -1797,7 +2749,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "4|AP0yWoKlDJvFGdHG1JjOimOcYZapU8RXD7sv1IHW86458825",
+                  "value": "3|U6XaLWNoCfOCueN9sRBH3NnaRT9CY402a2vkWlxf06dd0aa5",
                   "type": "string"
                 }
               ]
@@ -1817,7 +2769,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"productId\": 1,\r\n    \"rating\": 5,\r\n    \"review\": \"testttt\"\r\n}"
+              "raw": "{\r\n    \"productId\": 4,\r\n    \"rating\": 5,\r\n    \"review\": \"testttt\"\r\n}"
             },
             "url": {
               "raw": "http://127.0.0.1:8000/api/rating",
@@ -1951,7 +2903,7 @@
               }
             ],
             "url": {
-              "raw": "http://127.0.0.1:8000/api/products-by-vendor/2",
+              "raw": "http://127.0.0.1:8000/api/products-by-vendor/1",
               "protocol": "http",
               "host": [
                 "127",
@@ -1963,7 +2915,7 @@
               "path": [
                 "api",
                 "products-by-vendor",
-                "2"
+                "1"
               ]
             }
           },
@@ -2011,7 +2963,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "1|CUPUaHS9BIlG753FwltQJCv8qD6PuV2wm1bh1LC085445150",
+                  "value": "1|zWQ6sHIrXlTATmOcWWAxkEMqBbX4nlW4nBb5JAj1e13711bf",
                   "type": "string"
                 }
               ]
@@ -2055,7 +3007,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "1|CUPUaHS9BIlG753FwltQJCv8qD6PuV2wm1bh1LC085445150",
+                  "value": "1|zWQ6sHIrXlTATmOcWWAxkEMqBbX4nlW4nBb5JAj1e13711bf",
                   "type": "string"
                 }
               ]
@@ -2070,7 +3022,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"productId\": 4,\r\n    \"variantId\": 6,\r\n    \"quantity\": 2\r\n}",
+              "raw": "{\r\n    \"productId\": 3,\r\n    \"variantId\": 4,\r\n    \"quantity\": 1\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2163,7 +3115,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "1|cIqWQl83J0tZ7r1tJMunVwfqEvNHm44fjVhX57SNfb1cb6c4",
+                  "value": "2|OuVKpH593kKFJCSy8xinnSqp8H3rMI8afZKeMe7pe111c5fc",
                   "type": "string"
                 }
               ]
@@ -2249,7 +3201,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "1|qNON4VQbguEMAuNNCmVjdoM3ULHySwtIdc0dmS1ze851ac49",
+                  "value": "1|DJ9xXovTlFa43KNM9VGuEWM5ebEy70Q8ikUjwawa043c3bd2",
                   "type": "string"
                 }
               ]
@@ -2302,7 +3254,7 @@
           "bearer": [
             {
               "key": "token",
-              "value": "5|r8iixQjCWRKrrW69EuBYukexbKQA09IYGI4dm83S81ba08e0",
+              "value": "62|gSmEpmkxYEpHoBFvaLHpRJZzVJChK4ZZ8BczlAepfb78b1a3",
               "type": "string"
             }
           ]
@@ -2315,16 +3267,44 @@
           }
         ],
         "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "nameAr",
+              "value": "عيد الميلاد282",
+              "type": "text",
+              "uuid": "22ca32ec-4498-43ff-aa82-bb98ce2f1416",
+              "disabled": true
+            },
+            {
+              "key": "nameEn",
+              "value": "chritsmas282",
+              "type": "text",
+              "uuid": "637f87dd-a822-4d15-835d-bb2e7a50b40b",
+              "disabled": true
+            },
+            {
+              "key": "descriptionAr",
+              "value": "اختبار112",
+              "type": "text",
+              "uuid": "c2e5593a-707f-4000-9c7e-a42aa39cd949"
+            },
+            {
+              "key": "descriptionEn",
+              "value": "test112",
+              "type": "text",
+              "uuid": "0c7e9db4-ed97-447e-9458-5e8e0ff799b4"
+            },
+            {
+              "key": "image",
+              "type": "file",
+              "uuid": "df91cc46-0aca-43ea-8314-41aaffe4c548",
+              "src": "/C:/Users/karam/Downloads/deer.png"
             }
-          }
+          ]
         },
         "url": {
-          "raw": "https://cdb-back.bw-businessworld.net/api/brands/1",
+          "raw": "https://cdb-back.bw-businessworld.net/api/occasions",
           "protocol": "https",
           "host": [
             "cdb-back",
@@ -2333,8 +3313,7 @@
           ],
           "path": [
             "api",
-            "brands",
-            "1"
+            "occasions"
           ]
         }
       },

@@ -2,8 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const baseApi = createApi({
   reducerPath: 'api',
-  tagTypes: ['Occasions', 'Brands', 'Categories', 'Messages'],
-
+  tagTypes: ['Occasions', 'Brands', 'Categories', 'Messages', 'Users', 'Orders'],
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://cdb-back.bw-businessworld.net/api',
     prepareHeaders: (headers, { getState }) => {
@@ -158,8 +157,63 @@ export const baseApi = createApi({
         url: `admin/admin-messages/${id}`
       }),
       invalidatesTags: ['Messages']
-    })
+    }),
     //End Reports
+    // ================= USERS =================
+
+    getUsers: builder.query({
+      query: () => 'admin/admin-users',
+      providesTags: ['Users']
+    }),
+
+    deleteUser: builder.mutation({
+      query: (id) => ({
+        url: `admin/admin-delete-user/${id}`,
+        method: 'DELETE'
+      }),
+      invalidatesTags: ['Users']
+    }),
+
+    updateUser: builder.mutation({
+      query: ({ id, formData }) => ({
+        url: `admin/edit-user/${id}`,
+        method: 'POST',
+        body: formData
+      }),
+      invalidatesTags: ['Users']
+    }),
+    //End Userrrrrrrrrrrrs
+
+    // ================= ORDERS =================
+
+    getOrders: builder.query({
+      query: () => 'admin/admin-orders',
+      providesTags: ['Orders']
+    }),
+
+    deleteOrder: builder.mutation({
+      query: (id) => ({
+        url: `admin/admin-delete-order/${id}`,
+        method: 'DELETE'
+      }),
+      invalidatesTags: ['Orders']
+    }),
+
+    updateOrder: builder.mutation({
+      query: ({ id, formData }) => ({
+        url: `admin/edit-order/${id}`,
+        method: 'POST',
+        body: formData
+      }),
+      invalidatesTags: ['Orders']
+    }),
+    //End Ordersssssssss
+    // ================= STATISTICS =================
+
+    getStatistics: builder.query({
+      query: () => 'admin/statistics'
+    })
+    //End STATISTICS
   })
 });
 
@@ -181,5 +235,12 @@ export const {
   useDeleteCategoryMutation,
   useGetMessagesQuery,
   useDeleteMessageMutation,
-  useMarkMessageAsReadMutation
+  useMarkMessageAsReadMutation,
+  useGetUsersQuery,
+  useDeleteUserMutation,
+  useUpdateUserMutation,
+  useGetOrdersQuery,
+  useDeleteOrderMutation,
+  useUpdateOrderMutation,
+  useGetStatisticsQuery
 } = baseApi;
