@@ -4,7 +4,6 @@ import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-// MUI
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -14,11 +13,10 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-// icons
+
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-// redux
 import { useLoginMutation } from '../../../redux/features/services/baseApi';
 import { setCredentials, selectToken } from '../../../redux/features/auth/authSlice';
 
@@ -31,7 +29,7 @@ export default function AuthLogin() {
 
   const token = useSelector(selectToken);
 
-  // ✅ redirect فوري بدون delay
+
   useEffect(() => {
     if (token) {
       navigate('/dashboard/default', { replace: true });
@@ -50,7 +48,7 @@ export default function AuthLogin() {
 
         dispatch(
           setCredentials({
-            token: res.data.accessToken, // 🔥 هذا هو الصح
+            token: res.data.accessToken, 
             user: {
               id: res.data.userId,
               name: res.data.userName,
@@ -79,7 +77,7 @@ export default function AuthLogin() {
   return (
     <form onSubmit={formik.handleSubmit}>
       <Stack spacing={2}>
-        {/* Email */}
+  
         <Box>
           <InputLabel>Email</InputLabel>
           <OutlinedInput
@@ -95,7 +93,7 @@ export default function AuthLogin() {
           </Typography>
         </Box>
 
-        {/* Password */}
+
         <Box>
           <InputLabel>Password</InputLabel>
           <OutlinedInput
@@ -117,7 +115,6 @@ export default function AuthLogin() {
           </Typography>
         </Box>
 
-        {/* Button */}
         <Button
           fullWidth
           type="submit"

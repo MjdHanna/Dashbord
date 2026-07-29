@@ -101,7 +101,6 @@ export default function Occasions() {
 
   return (
     <Box p={3}>
-      {/* HEADER */}
       <Stack direction="row" justifyContent="space-between" mb={4}>
         <Typography variant="h4" fontWeight={700}>
           🎉 Occasions
@@ -114,14 +113,13 @@ export default function Occasions() {
           sx={{
             borderRadius: 3,
             px: 3,
-            background: '#2C687B'
+            background: 'primary'
           }}
         >
           Add Occasion
         </Button>
       </Stack>
 
-      {/* LIST */}
       <Stack spacing={2}>
         {data?.data?.map((item) => (
           <Card
@@ -138,7 +136,6 @@ export default function Occasions() {
               }
             }}
           >
-            {/* IMAGE */}
             <Avatar
               src={item.image}
               variant="rounded"
@@ -150,7 +147,6 @@ export default function Occasions() {
               }}
             />
 
-            {/* CONTENT */}
             <Box flex={1}>
               <Typography variant="h6" fontWeight={600}>
                 {item.nameEn} / {item.nameAr}
@@ -165,7 +161,6 @@ export default function Occasions() {
               </Typography>
             </Box>
 
-            {/* ACTIONS */}
             <Stack direction="row" spacing={1}>
               <Button variant="outlined" startIcon={<EditIcon />} onClick={() => handleOpen(item)} sx={{ borderRadius: 3 }}>
                 Edit
@@ -185,7 +180,6 @@ export default function Occasions() {
         ))}
       </Stack>
 
-      {/* MODAL */}
       <Dialog open={open} onClose={() => setOpen(false)} fullWidth maxWidth="sm">
         <DialogTitle>{editing ? 'Edit Occasion' : 'Add Occasion'}</DialogTitle>
 

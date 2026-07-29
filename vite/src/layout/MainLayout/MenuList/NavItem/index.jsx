@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Activity, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, matchPath, useLocation } from 'react-router-dom';
 
 // material-ui
@@ -45,7 +45,7 @@ export default function NavItem({ item, level, isParents = false, setSelectedID 
   useEffect(() => {
     compareSize();
     window.addEventListener('resize', compareSize);
-    window.removeEventListener('resize', compareSize);
+    return () => window.removeEventListener('resize', compareSize);
   }, []);
 
   const Icon = item?.icon;
@@ -69,110 +69,104 @@ export default function NavItem({ item, level, isParents = false, setSelectedID 
   };
 
   return (
-    <>
-      <ListItemButton
-        component={Link}
-        to={item.url}
-        target={itemTarget}
-        disabled={item.disabled}
-        disableRipple={!drawerOpen}
-        sx={{
-          zIndex: 1201,
-          borderRadius: `${borderRadius}px`,
-          mb: 0.5,
-          ...(drawerOpen && level !== 1 && { ml: `${level * 18}px` }),
-          ...(!drawerOpen && { pl: 1.25 }),
-          ...((!drawerOpen || level !== 1) && {
-            py: level === 1 ? 0 : 1,
+    <ListItemButton
+      component={Link}
+      to={item.url}
+      target={itemTarget}
+      disabled={item.disabled}
+      disableRipple={!drawerOpen}
+      sx={{
+        zIndex: 1201,
+        borderRadius: `${borderRadius}px`,
+        mb: 0.5,
+        ...(drawerOpen && level !== 1 && { ml: `${level * 18}px` }),
+        ...(!drawerOpen && { pl: 1.25 }),
+        ...((!drawerOpen || level !== 1) && {
+          py: level === 1 ? 0 : 1,
+          '&:hover': { bgcolor: 'transparent' },
+          '&.Mui-selected': {
             '&:hover': { bgcolor: 'transparent' },
-            '&.Mui-selected': {
-              '&:hover': { bgcolor: 'transparent' },
-              bgcolor: 'transparent'
-            }
-          })
-        }}
-        selected={isSelected}
-        onClick={() => itemHandler()}
-      >
-        <ButtonBase aria-label="theme-icon" sx={{ borderRadius: `${borderRadius}px` }} disableRipple={drawerOpen}>
-          <ListItemIcon
-            sx={{
-              minWidth: level === 1 ? 36 : 18,
-              color: isSelected ? 'secondary.main' : 'text.primary',
-              ...(!drawerOpen &&
-                level === 1 && {
-                  borderRadius: `${borderRadius}px`,
-                  width: 46,
-                  height: 46,
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  '&:hover': { bgcolor: 'secondary.light' },
-                  ...(isSelected && {
-                    bgcolor: 'secondary.light',
-                    '&:hover': { bgcolor: 'secondary.light' }
-                  })
+            bgcolor: 'transparent'
+          }
+        })
+      }}
+      selected={isSelected}
+      onClick={() => itemHandler()}
+    >
+      <ButtonBase aria-label="theme-icon" sx={{ borderRadius: `${borderRadius}px` }} disableRipple={drawerOpen}>
+        <ListItemIcon
+          sx={{
+            minWidth: level === 1 ? 36 : 18,
+            color: isSelected ? 'secondary.main' : 'text.primary',
+            ...(!drawerOpen &&
+              level === 1 && {
+                borderRadius: `${borderRadius}px`,
+                width: 46,
+                height: 46,
+                alignItems: 'center',
+                justifyContent: 'center',
+                '&:hover': { bgcolor: 'secondary.light' },
+                ...(isSelected && {
+                  bgcolor: 'secondary.light',
+                  '&:hover': { bgcolor: 'secondary.light' }
                 })
-            }}
-          >
-            {itemIcon}
-          </ListItemIcon>
-        </ButtonBase>
+              })
+          }}
+        >
+          {itemIcon}
+        </ListItemIcon>
+      </ButtonBase>
 
-        {(drawerOpen || (!drawerOpen && level !== 1)) && (
-          <Tooltip title={item.title} disableHoverListener={!hoverStatus}>
-            <ListItemText
-              primary={
+      {(drawerOpen || (!drawerOpen && level !== 1)) && (
+        <Tooltip title={item.title} disableHoverListener={!hoverStatus}>
+          <ListItemText
+            primary={
+              <Typography
+                ref={ref}
+                noWrap
+                variant={isSelected ? 'h5' : 'body1'}
+                sx={{
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  width: 102,
+                  color: 'inherit'
+                }}
+              >
+                {item.title}
+              </Typography>
+            }
+            secondary={
+              item.caption && (
                 <Typography
-                  ref={ref}
-                  noWrap
-                  variant={isSelected ? 'h5' : 'body1'}
+                  variant="caption"
+                  gutterBottom
                   sx={{
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    width: 102,
-                    color: 'inherit'
+                    display: 'block',
+                    fontSize: '0.6875rem',
+                    fontWeight: 500,
+                    color: 'text.secondary',
+                    textTransform: 'capitalize',
+                    lineHeight: 1.66
                   }}
                 >
-                  {item.title}
+                  {item.caption}
                 </Typography>
-              }
-              secondary={
-                item.caption && (
-                  <Typography
-                    variant="caption"
-                    gutterBottom
-                    sx={{
-                      display: 'block',
-                      fontSize: '0.6875rem',
-                      fontWeight: 500,
-                      color: 'text.secondary',
-                      textTransform: 'capitalize',
-                      lineHeight: 1.66
-                    }}
-                  >
-                    {item.caption}
-                  </Typography>
-                )
-              }
-            />
-          </Tooltip>
-        )}
-
-        <Activity mode={drawerOpen && item.chip ? 'visible' : 'hidden'}>
-          <Chip
-            color={item.chip?.color}
-            variant={item.chip?.variant}
-            size={item.chip?.size}
-            label={item.chip?.label}
-            avatar={
-              <Activity mode={item.chip?.avatar ? 'visible' : 'hidden'}>
-                <Avatar>{item.chip?.avatar}</Avatar>
-              </Activity>
+              )
             }
           />
-        </Activity>
-      </ListItemButton>
-    </>
+        </Tooltip>
+      )}
+
+      {drawerOpen && item.chip && (
+        <Chip
+          color={item.chip?.color}
+          variant={item.chip?.variant}
+          size={item.chip?.size}
+          label={item.chip?.label}
+          avatar={item.chip?.avatar ? <Avatar>{item.chip?.avatar}</Avatar> : null}
+        />
+      )}
+    </ListItemButton>
   );
 }
 

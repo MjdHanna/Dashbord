@@ -31,6 +31,7 @@ export default function Users() {
 
   const [open, setOpen] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
+  const [password, setPassword] = useState('');
 
   const users = Array.isArray(data?.data) ? data.data : [];
 
@@ -47,7 +48,12 @@ export default function Users() {
 
   // ================= OPEN EDIT =================
   const handleOpenEdit = (user) => {
-    setSelectedUser(user);
+    setSelectedUser({
+      ...user,
+      originalEmail: user.email // مهم 🔥
+    });
+
+    setPassword('');
     setOpen(true);
   };
 
@@ -55,10 +61,20 @@ export default function Users() {
   const handleUpdate = async () => {
     try {
       const formData = new FormData();
+
       formData.append('name', selectedUser.name);
-      formData.append('email', selectedUser.email);
       formData.append('phoneNumber', selectedUser.phoneNumber || '');
       formData.append('gender', selectedUser.gender || '');
+
+      // ✅ لا ترسل الإيميل إلا إذا تغير
+      if (selectedUser.email !== selectedUser.originalEmail) {
+        formData.append('email', selectedUser.email);
+      }
+
+      // ✅ لا ترسل الباسورد إلا إذا تم إدخاله
+      if (password) {
+        formData.append('password', password);
+      }
 
       await updateUser({
         id: selectedUser.id,
@@ -77,16 +93,14 @@ export default function Users() {
 
   return (
     <Box sx={{ minHeight: '100vh', p: 3, background: '#f5f7fa' }}>
-      {/* HEADER */}
       <Stack direction="row" justifyContent="space-between" mb={4}>
         <Typography variant="h4" fontWeight={700}>
           👥 Users Management
         </Typography>
 
-        <Chip label={`${users.length} users`} color="primary" />
+        <Chip label={`${users.length} users`} color="primary" sx={{ color: 'white' }} />
       </Stack>
 
-      {/* USERS LIST */}
       <Stack spacing={2}>
         {users.map((user) => (
           <Card
@@ -107,12 +121,10 @@ export default function Users() {
               }
             }}
           >
-            {/* AVATAR */}
             <Avatar sx={{ bgcolor: theme.palette.primary.main }}>
               <PersonIcon />
             </Avatar>
 
-            {/* INFO */}
             <Box flex={1}>
               <Typography fontWeight={600}>{user.name || 'No Name'}</Typography>
 
@@ -129,7 +141,6 @@ export default function Users() {
               {user.gender && <Chip label={user.gender} size="small" sx={{ mt: 1 }} />}
             </Box>
 
-            {/* ACTIONS */}
             <Stack direction="row" spacing={1}>
               <Button variant="outlined" startIcon={<EditIcon />} sx={{ borderRadius: 3 }} onClick={() => handleOpenEdit(user)}>
                 Edit
@@ -148,8 +159,6 @@ export default function Users() {
           </Card>
         ))}
       </Stack>
-
-      {/* ================= EDIT MODAL ================= */}
       <Dialog open={open} onClose={() => setOpen(false)} fullWidth>
         <DialogTitle>Edit User</DialogTitle>
 
@@ -204,6 +213,15 @@ export default function Users() {
                 gender: e.target.value
               })
             }
+          />
+          <TextField
+            fullWidth
+            label="New Password"
+            type="password"
+            margin="normal"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            helperText="Leave empty if you don't want to change password"
           />
         </DialogContent>
 

@@ -4,7 +4,7 @@ const defaultColor = {
   // paper & background
   paper: '#ffffff',
   // primary
-  primaryLight: '#e3f2fd',
+  primaryLight: '#7e2553',
   primary200: '#90caf9',
   primaryMain: '#2196f3',
   primaryDark: '#1e88e5',

@@ -1467,7 +1467,7 @@
                   "bearer": [
                     {
                       "key": "token",
-                      "value": "1|ozOmqYxydXAho6Woerv1mGZ8lUs4XSmWAYFCVnyI16078713",
+                      "value": "3|ZfIbMFLmN3EUyhFgk98mXLUcNqUxwMPI0Pt7TJT654e6b48b",
                       "type": "string"
                     }
                   ]
@@ -1761,7 +1761,7 @@
                   "bearer": [
                     {
                       "key": "token",
-                      "value": "2|pNzNh0OrppYrY1ilDumomIQ3DJMJJaE4Lh5yBoyq14ea68f4",
+                      "value": "2|fU7UdVrbXcGEs56De0ubMueLByuKiHIVqiYe9comb08b95f2",
                       "type": "string"
                     }
                   ]
@@ -1856,7 +1856,7 @@
                   "bearer": [
                     {
                       "key": "token",
-                      "value": "2|pNzNh0OrppYrY1ilDumomIQ3DJMJJaE4Lh5yBoyq14ea68f4",
+                      "value": "2|fU7UdVrbXcGEs56De0ubMueLByuKiHIVqiYe9comb08b95f2",
                       "type": "string"
                     }
                   ]
@@ -2486,6 +2486,276 @@
           ]
         },
         {
+          "name": "adDrivers",
+          "item": [
+            {
+              "name": "adGetDrivers",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "3|ZfIbMFLmN3EUyhFgk98mXLUcNqUxwMPI0Pt7TJT654e6b48b",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/admin-drivers",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "admin-drivers"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "adCreateDriver",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "3|ZfIbMFLmN3EUyhFgk98mXLUcNqUxwMPI0Pt7TJT654e6b48b",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "driverTest2",
+                      "type": "text",
+                      "uuid": "31b6a7ea-b216-453c-9d9d-b41506157ec3"
+                    },
+                    {
+                      "key": "email",
+                      "value": "test1@example.com",
+                      "type": "text",
+                      "uuid": "1c67a03e-e581-492b-b9d5-fe33657b55d7"
+                    },
+                    {
+                      "key": "password",
+                      "value": "pass1233211",
+                      "type": "text",
+                      "uuid": "9357b718-0903-4572-9918-46c20e8a6342"
+                    },
+                    {
+                      "key": "image",
+                      "type": "file",
+                      "uuid": "263f9851-4703-433a-bed8-268d5d768e94",
+                      "src": "/C:/Users/karam/Downloads/home.png"
+                    },
+                    {
+                      "key": "phoneNumber",
+                      "value": "1236987456",
+                      "type": "text",
+                      "uuid": "e1d6f27e-ff1c-4d69-a9cb-706fd8957b6c"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/admin-create-driver",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "admin-create-driver"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "adEditDriver",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "3|ZfIbMFLmN3EUyhFgk98mXLUcNqUxwMPI0Pt7TJT654e6b48b",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "driverTest22",
+                      "type": "text",
+                      "uuid": "31b6a7ea-b216-453c-9d9d-b41506157ec3"
+                    },
+                    {
+                      "key": "email",
+                      "value": "test1@example.com",
+                      "type": "text",
+                      "uuid": "1c67a03e-e581-492b-b9d5-fe33657b55d7",
+                      "disabled": true
+                    },
+                    {
+                      "key": "password",
+                      "value": "pass1233211",
+                      "type": "text",
+                      "uuid": "9357b718-0903-4572-9918-46c20e8a6342"
+                    },
+                    {
+                      "key": "image",
+                      "type": "file",
+                      "uuid": "263f9851-4703-433a-bed8-268d5d768e94",
+                      "src": "/C:/Users/karam/Downloads/deer.png"
+                    },
+                    {
+                      "key": "phoneNumber",
+                      "value": "1236987456",
+                      "type": "text",
+                      "uuid": "e1d6f27e-ff1c-4d69-a9cb-706fd8957b6c",
+                      "disabled": true
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/admin-edit-driver/17",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "admin-edit-driver",
+                    "17"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "adDeleteDriver",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "3|ZfIbMFLmN3EUyhFgk98mXLUcNqUxwMPI0Pt7TJT654e6b48b",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/admin-delete-driver/17",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "admin-delete-driver",
+                    "17"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
           "name": "getPendingVendors",
           "request": {
             "method": "GET",
@@ -3007,7 +3277,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "1|zWQ6sHIrXlTATmOcWWAxkEMqBbX4nlW4nBb5JAj1e13711bf",
+                  "value": "1|SGFFoiXIyMddK5rI4uA0w0zqgRuyAr3DhaPVbfq230be1f70",
                   "type": "string"
                 }
               ]
@@ -3201,7 +3471,7 @@
               "bearer": [
                 {
                   "key": "token",
-                  "value": "1|DJ9xXovTlFa43KNM9VGuEWM5ebEy70Q8ikUjwawa043c3bd2",
+                  "value": "1|SGFFoiXIyMddK5rI4uA0w0zqgRuyAr3DhaPVbfq230be1f70",
                   "type": "string"
                 }
               ]
@@ -3245,9 +3515,6 @@
     },
     {
       "name": "test",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
       "request": {
         "auth": {
           "type": "bearer",
@@ -3259,7 +3526,7 @@
             }
           ]
         },
-        "method": "GET",
+        "method": "POST",
         "header": [
           {
             "key": "Accept",
@@ -3267,44 +3534,16 @@
           }
         ],
         "body": {
-          "mode": "formdata",
-          "formdata": [
-            {
-              "key": "nameAr",
-              "value": "عيد الميلاد282",
-              "type": "text",
-              "uuid": "22ca32ec-4498-43ff-aa82-bb98ce2f1416",
-              "disabled": true
-            },
-            {
-              "key": "nameEn",
-              "value": "chritsmas282",
-              "type": "text",
-              "uuid": "637f87dd-a822-4d15-835d-bb2e7a50b40b",
-              "disabled": true
-            },
-            {
-              "key": "descriptionAr",
-              "value": "اختبار112",
-              "type": "text",
-              "uuid": "c2e5593a-707f-4000-9c7e-a42aa39cd949"
-            },
-            {
-              "key": "descriptionEn",
-              "value": "test112",
-              "type": "text",
-              "uuid": "0c7e9db4-ed97-447e-9458-5e8e0ff799b4"
-            },
-            {
-              "key": "image",
-              "type": "file",
-              "uuid": "df91cc46-0aca-43ea-8314-41aaffe4c548",
-              "src": "/C:/Users/karam/Downloads/deer.png"
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"admin123@example.com\",\r\n    \"password\": \"Admin2002\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
             }
-          ]
+          }
         },
         "url": {
-          "raw": "https://cdb-back.bw-businessworld.net/api/occasions",
+          "raw": "https://cdb-back.bw-businessworld.net/api/login",
           "protocol": "https",
           "host": [
             "cdb-back",
@@ -3313,7 +3552,7 @@
           ],
           "path": [
             "api",
-            "occasions"
+            "login"
           ]
         }
       },

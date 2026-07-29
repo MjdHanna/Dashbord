@@ -33,7 +33,7 @@ export default function Reports() {
 
     try {
       await markAsRead(item.id).unwrap();
-      refetch(); // 🔥 هذا هو الحل الحقيقي
+      refetch();
     } catch (err) {
       console.error(err);
     }
@@ -45,16 +45,14 @@ export default function Reports() {
 
   return (
     <Box sx={{ minHeight: '100vh', p: 3, background: theme.palette.grey[50] }}>
-      {/* HEADER */}
       <Stack direction="row" justifyContent="space-between" mb={4}>
         <Typography variant="h4" fontWeight={700}>
           📩 Reports / Messages
         </Typography>
 
-        <Chip label={`${messages.length} messages`} color="primary" />
+        <Chip label={`${messages.length} messages`} color="primary" sx={{ color: 'white' }} />
       </Stack>
 
-      {/* LIST */}
       <Stack spacing={2}>
         {messages.map((item) => {
           const isRead = Number(item.isRead) === 1;
@@ -80,14 +78,11 @@ export default function Reports() {
                 }
               }}
             >
-              {/* ICON */}
               <Avatar sx={{ bgcolor: isRead ? theme.palette.primary.main : '#ff9800' }}>
                 <EmailIcon />
               </Avatar>
 
-              {/* CONTENT */}
               <Box flex={1}>
-                {/* USER */}
                 <Stack direction="row" alignItems="center" gap={1}>
                   <PersonIcon fontSize="small" />
                   <Typography fontWeight={600}>{item.userName}</Typography>
@@ -95,7 +90,6 @@ export default function Reports() {
                   <Chip label={isRead ? 'Read' : 'Unread'} size="small" color={isRead ? 'success' : 'warning'} />
                 </Stack>
 
-                {/* CONTACT */}
                 <Typography variant="body2" color="text.secondary">
                   📧 {item.email}
                 </Typography>
@@ -104,26 +98,20 @@ export default function Reports() {
                   📞 {item.phoneNumber}
                 </Typography>
 
-                {/* SUBJECT */}
                 <Typography variant="subtitle2" mt={1} fontWeight={600}>
                   {item.subject}
                 </Typography>
 
-                {/* MESSAGE */}
                 <Typography variant="body2" mt={1}>
                   {item.message}
                 </Typography>
 
-                {/* DATE */}
                 <Typography variant="caption" color="text.secondary">
                   {item.createdAt}
                 </Typography>
               </Box>
 
-              {/* DELETE */}
-              {/* ACTIONS */}
               <Stack direction="row" spacing={1}>
-                {/* MARK AS READ */}
                 {!isRead && (
                   <Button
                     variant="outlined"
@@ -138,7 +126,6 @@ export default function Reports() {
                   </Button>
                 )}
 
-                {/* DELETE */}
                 <Button
                   variant="contained"
                   color="error"

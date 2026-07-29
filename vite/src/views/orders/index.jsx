@@ -71,15 +71,15 @@ export default function Orders() {
   // ===== Save Edit =====
   const handleSave = async () => {
     try {
-      const formData = new FormData();
-
-      Object.keys(form).forEach((key) => {
-        formData.append(key, form[key]);
-      });
-
+      const payload = {
+        shipping_name: String(form.shippingName || ''),
+        shipping_phone: String(form.shippingPhone || ''),
+        shipping_address: String(form.shippingAddress || ''),
+        status: form.status || 'pending'
+      };
       await updateOrder({
         id: selectedOrder.id,
-        formData
+        formData: payload
       }).unwrap();
 
       setOpen(false);
@@ -87,23 +87,20 @@ export default function Orders() {
       console.error(err);
     }
   };
-
   if (isLoading) {
     return <Typography p={3}>Loading orders...</Typography>;
   }
 
   return (
     <Box sx={{ minHeight: '100vh', p: 3, background: '#f5f7fa' }}>
-      {/* HEADER */}
       <Stack direction="row" justifyContent="space-between" mb={4}>
         <Typography variant="h4" fontWeight={700}>
           🛒 Orders Management
         </Typography>
 
-        <Chip label={`${orders.length} orders`} color="primary" />
+        <Chip label={`${orders.length} orders`} color="primary" sx={{ color: 'white' }} />
       </Stack>
 
-      {/* LIST */}
       <Stack spacing={2}>
         {orders.map((order) => (
           <Card
@@ -124,12 +121,10 @@ export default function Orders() {
               }
             }}
           >
-            {/* ICON */}
             <Avatar sx={{ bgcolor: theme.palette.primary.main }}>
               <ShoppingCartIcon />
             </Avatar>
 
-            {/* INFO */}
             <Box flex={1}>
               <Typography fontWeight={600}>{order.orderNumber}</Typography>
 
@@ -145,16 +140,14 @@ export default function Orders() {
                 📅 {order.createdAt}
               </Typography>
 
-              {/* STATUS */}
               <Chip
                 label={order.status}
-                color={order.status === 'completed' ? 'success' : order.status === 'processing' ? 'warning' : 'default'}
+                color={order.status === 'delivered' ? 'success' : order.status === 'processing' ? 'cancelled' : 'default'}
                 size="small"
                 sx={{ mt: 1 }}
               />
             </Box>
 
-            {/* ACTIONS */}
             <Stack direction="row" spacing={1}>
               <Button variant="outlined" startIcon={<EditIcon />} sx={{ borderRadius: 3 }} onClick={() => handleEditOpen(order)}>
                 Edit
@@ -174,7 +167,6 @@ export default function Orders() {
         ))}
       </Stack>
 
-      {/* MODAL */}
       <Dialog open={open} onClose={() => setOpen(false)} fullWidth>
         <DialogTitle>Edit Order</DialogTitle>
 
@@ -197,7 +189,7 @@ export default function Orders() {
             <TextField select label="Status" value={form.status} onChange={(e) => setForm({ ...form, status: e.target.value })}>
               <MenuItem value="pending">Pending</MenuItem>
               <MenuItem value="processing">Processing</MenuItem>
-              <MenuItem value="completed">Completed</MenuItem>
+              <MenuItem value="delivered">delivered</MenuItem>
             </TextField>
           </Stack>
         </DialogContent>

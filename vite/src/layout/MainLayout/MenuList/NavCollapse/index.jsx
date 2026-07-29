@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Activity, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 // material-ui
@@ -84,7 +84,7 @@ export default function NavCollapse({ menu, level, parentId }) {
   useEffect(() => {
     compareSize();
     window.addEventListener('resize', compareSize);
-    window.removeEventListener('resize', compareSize);
+    return () => window.removeEventListener('resize', compareSize);
   }, []);
 
   useEffect(() => {
@@ -152,7 +152,7 @@ export default function NavCollapse({ menu, level, parentId }) {
         className={anchorEl ? 'Mui-selected' : ''}
         onClick={handleClickMini}
       >
-        <Activity mode={menuIcon ? 'visible' : 'hidden'}>
+        {menuIcon && (
           <ListItemIcon
             sx={{
               minWidth: level === 1 ? 36 : 18,
@@ -175,7 +175,8 @@ export default function NavCollapse({ menu, level, parentId }) {
           >
             {menuIcon}
           </ListItemIcon>
-        </Activity>
+        )}
+
         {(drawerOpen || (!drawerOpen && level !== 1)) && (
           <Tooltip title={menu.title} disableHoverListener={!hoverStatus}>
             <ListItemText
@@ -217,7 +218,7 @@ export default function NavCollapse({ menu, level, parentId }) {
 
         {openMini || open ? collapseIcon : <IconChevronDown stroke={1.5} size="16px" style={{ marginTop: 'auto', marginBottom: 'auto' }} />}
 
-        <Activity mode={!drawerOpen ? 'visible' : 'hidden'}>
+        {!drawerOpen && (
           <Popper
             open={openMini}
             anchorEl={anchorEl}
@@ -261,32 +262,31 @@ export default function NavCollapse({ menu, level, parentId }) {
               </Transitions>
             )}
           </Popper>
-        </Activity>
+        )}
       </ListItemButton>
-      <Activity mode={drawerOpen ? 'visible' : 'hidden'}>
+
+      {drawerOpen && (
         <Collapse in={open} timeout="auto" unmountOnExit>
-          <Activity mode={open ? 'visible' : 'hidden'}>
-            <List
-              disablePadding
-              sx={{
-                position: 'relative',
-                '&:after': {
-                  content: "''",
-                  position: 'absolute',
-                  left: '25px',
-                  top: 0,
-                  height: '100%',
-                  width: '1px',
-                  opacity: 1,
-                  bgcolor: 'primary.light'
-                }
-              }}
-            >
-              {menus}
-            </List>
-          </Activity>
+          <List
+            disablePadding
+            sx={{
+              position: 'relative',
+              '&:after': {
+                content: "''",
+                position: 'absolute',
+                left: '25px',
+                top: 0,
+                height: '100%',
+                width: '1px',
+                opacity: 1,
+                bgcolor: 'primary.light'
+              }
+            }}
+          >
+            {menus}
+          </List>
         </Collapse>
-      </Activity>
+      )}
     </>
   );
 }
